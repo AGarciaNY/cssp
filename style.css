@@ -1,75 +1,65 @@
-
-@keyframes role{
-    0%   {transform: rotate(0deg);}
-    25%  {transform: rotate(90deg);}
-    50%  {transform: rotate(180deg);}
-    75%  {transform: rotate(calc(270deg));}
-    100% {transform: rotate(calc(360deg));}
-}
-@keyframes norole{
-    0%   {transform: rotate(0deg);}
-    25%  {transform: rotate(-90deg);}
-    50%  {transform: rotate(-180deg);}
-    75%  {transform: rotate(-270deg);}
-    100% {transform: rotate(-360deg);}
-}
-#move{
-    height:100px;
-    width:100px;
-    background-color: black;
-    border-radius: 50%;
-    position: relative;
-    left:calc(50% - 50px);
-    top:100px;
-    animation: role 5s infinite;
-    animation-timing-function: linear;
-
-}
-#small{
-    height: 20px;
-    width:20px;
-    position: relative;
-    top:15px;
-    left:15px;
-    background-color: white;
-    animation: norole 5s infinite;
-    animation-timing-function: linear;
-}
-#smal2{
-    height: 20px;
-    width:20px;
-    position: relative;
-    top:85px;
-    left:85px;
-    background-color: white;
-    animation: norole 5s infinite;
-    animation-timing-function: linear;
-}
 body{
-    background-color:red;
+    background-color:gray;
 }
-@media (max-width: 600px) {
-    body{
-        animation: color 5s infinite;
-        animation-fill-mode: forwards;
-        animation-direction:alternate;
+.holder{
+    height: 800px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 500px;
+    perspective-origin: 50% calc(50% - 2em);
+
+}
+#holder{
+    position: relative;
+    transform-style: preserve-3d;
+    animation: run 5s infinite linear;
+}
+@keyframes run{
+    to{transform: rotateZ(360deg) rotateX(360deg) rotateY(360deg);
     }
 }
-
-@media (max-width: 400px) {
-    body{
-        animation-name: color2;
-        animation-duration: 5s;
-        animation-fill-mode: forwards;
-        animation-direction:alternate;
-    }
+#cube{
+    
+    width:200px;
+    height:200px;
+    transform-style: preserve-3d;
+    position: relative;
+    top:0px;
 }
-
-@keyframes color{
-   from {background-color:red;}
-    to{background-color:orange;}
+#front, #back, #left, #right{
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(51, 0, 255, 0.467);
+    box-shadow: 0 0 0.5em #00a inset;
 }
-@keyframes color2{
-    from {background-color:orange;}
-     to{background-color:yellow;}
- }
+#front{
+    transform: translateZ(100px);
+}
+#back{
+    transform: rotateY(180deg) translateZ(100px);
+}
+#left{
+    transform: rotateY(270deg) translateZ(100px);
+}
+#right{
+    transform: rotateY(90deg) translateZ(100px);
+}
+#top{
+    position:absolute;
+    width: 100%;
+    box-shadow: 0 0 0.5em #00a inset;
+    height: 100%;
+    background: rgba(0, 166, 255, .5);
+    transform: translateY(-50%) rotateX(90deg);
+}
+#bottom{
+    position:absolute;
+    width: 100%;
+    box-shadow: 0 0 0.5em #00a inset;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(50%) rotateX(90deg);
+}
