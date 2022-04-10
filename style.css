@@ -1,0 +1,75 @@
+
+@keyframes role{
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(90deg);}
+    50%  {transform: rotate(180deg);}
+    75%  {transform: rotate(calc(270deg));}
+    100% {transform: rotate(calc(360deg));}
+}
+@keyframes norole{
+    0%   {transform: rotate(0deg);}
+    25%  {transform: rotate(-90deg);}
+    50%  {transform: rotate(-180deg);}
+    75%  {transform: rotate(-270deg);}
+    100% {transform: rotate(-360deg);}
+}
+#move{
+    height:100px;
+    width:100px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    left:calc(50% - 50px);
+    top:100px;
+    animation: role 5s infinite;
+    animation-timing-function: linear;
+
+}
+#small{
+    height: 20px;
+    width:20px;
+    position: relative;
+    top:15px;
+    left:15px;
+    background-color: white;
+    animation: norole 5s infinite;
+    animation-timing-function: linear;
+}
+#smal2{
+    height: 20px;
+    width:20px;
+    position: relative;
+    top:85px;
+    left:85px;
+    background-color: white;
+    animation: norole 5s infinite;
+    animation-timing-function: linear;
+}
+body{
+    background-color:red;
+}
+@media (max-width: 600px) {
+    body{
+        animation: color 5s infinite;
+        animation-fill-mode: forwards;
+        animation-direction:alternate;
+    }
+}
+
+@media (max-width: 400px) {
+    body{
+        animation-name: color2;
+        animation-duration: 5s;
+        animation-fill-mode: forwards;
+        animation-direction:alternate;
+    }
+}
+
+@keyframes color{
+   from {background-color:red;}
+    to{background-color:orange;}
+}
+@keyframes color2{
+    from {background-color:orange;}
+     to{background-color:yellow;}
+ }
